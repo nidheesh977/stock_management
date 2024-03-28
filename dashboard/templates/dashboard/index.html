@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href = "/account/logout" style = "margin-left: auto;">Logout</a>
+
+<h3>Total Stock : {{total_stock}}</h3>
+<h3>Total Sales : {{total_sales}}</h3>
+<h3>Profit : {{profit}}</h3>
+<h3>Loss : {{loss}}</h3>
+
+<h3>New Order List</h3>
+
+<div class = "row">
+    {% for product in new_orders %}
+        <div class = "col-4" style = "border: 1px solid #a5a5a5; border-radius: 10px; overflow: hidden;">
+            <h4>{{product.title}}</h4>
+            <img src = "{{product.image.url}}" style = "width: 100%; height: contain;"/>
+            <p>₹{{product.price}}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
